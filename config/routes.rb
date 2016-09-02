@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-
-    root to: "users#index"
+    resources :papers
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
