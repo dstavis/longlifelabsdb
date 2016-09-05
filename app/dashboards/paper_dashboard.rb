@@ -11,7 +11,10 @@ class PaperDashboard < Administrate::BaseDashboard
     id: Field::Number,
     url: Field::Text,
     title: Field::Text,
+    authors: Field::Text,
+    journal: Field::Text,
     abstract: Field::Text,
+    tags: Field::Text,
     commentary: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -26,7 +29,7 @@ class PaperDashboard < Administrate::BaseDashboard
     :id,
     :url,
     :title,
-    :abstract,
+    :authors,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -35,7 +38,10 @@ class PaperDashboard < Administrate::BaseDashboard
     :id,
     :url,
     :title,
+    :authors,
+    :journal,
     :abstract,
+    :tags,
     :commentary,
     :created_at,
     :updated_at,
@@ -47,7 +53,10 @@ class PaperDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :url,
     :title,
+    :authors,
+    :journal,
     :abstract,
+    :tags,
     :commentary,
   ].freeze
 
