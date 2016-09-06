@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+n = 1
+while n < 20 do
+  Paper.create(title: Faker::Name.name)#, abstract: Faker::StarWars.quote, commentary: Faker::ChuckNorris.fact)
+  n = n + 1
+end
