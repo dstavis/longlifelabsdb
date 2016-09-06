@@ -17,15 +17,15 @@ ActiveRecord::Schema.define(version: 20160902093205) do
   enable_extension "plpgsql"
 
   create_table "papers", force: :cascade do |t|
+    t.integer  "pmid"
     t.text     "url"
-    t.text     "title"
-    t.text     "authors"
-    t.text     "journal"
+    t.string   "title"
+    t.string   "authors"
+    t.string   "journal"
     t.text     "abstract"
-    t.text     "tags",       default: [],              array: true
     t.text     "commentary"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

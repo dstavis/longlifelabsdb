@@ -1,13 +1,13 @@
 class CreatePapers < ActiveRecord::Migration
   def change
     create_table :papers do |t|
+      t.integer :pmid
       t.text :url
-      t.text :title
-      t.text :authors
-      t.text :journal
+      t.string :title
+      t.string :authors
+      t.string :journal
       t.text :abstract
 
-      t.text :tags, array: true, default: []
       t.text :commentary
 
       t.timestamps null: false
