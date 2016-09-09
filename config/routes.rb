@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   namespace :admin do
     resources :papers
+    resources :tags
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
