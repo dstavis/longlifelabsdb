@@ -36,15 +36,14 @@ class PaperDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :tags,
-    :id,
-    :pmid,
     :url,
+    :pmid,
+    :journal,
     :title,
     :authors,
-    :journal,
     :abstract,
     :commentary,
+    :tags,
     :created_at,
     :updated_at,
   ].freeze
@@ -53,14 +52,14 @@ class PaperDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :tags,
-    :commentary,
-    :pmid,
     :url,
+    :pmid,
+    :journal,
     :title,
     :authors,
-    :journal,
     :abstract,
+    :commentary,
+    :tags,
   ].freeze
 
   # Overwrite this method to customize how papers are displayed
