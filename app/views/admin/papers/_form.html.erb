@@ -1,0 +1,61 @@
+<%#
+# Form Partial
+
+This partial is rendered on a resource's `new` and `edit` pages,
+and renders all form fields for a resource's editable attributes.
+
+## Local variables:
+
+- `page`:
+  An instance of [Administrate::Page::Form][1].
+  Contains helper methods to display a form,
+  and knows which attributes should be displayed in the resource's form.
+
+[1]: http://www.rubydoc.info/gems/administrate/Administrate/Page/Form
+%>
+
+<%= form_for([namespace, page.resource], html: { class: "form" }) do |f| %>
+  <% if page.resource.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(page.resource.errors.count, "error") %>
+        prohibited this <%= page.resource_name %> from being saved:
+      </h2>
+
+      <ul>
+        <% page.resource.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% page.attributes.each do |attribute| -%>
+    <div class="field-unit field-unit--<%= attribute.html_class %>">
+      <% if attribute.name == "tags" %>
+        <h2>Assign an existing tag</h2>
+
+      <% end %>
+      <%= render_field attribute, f: f %>
+      <% if attribute.name == "tags" %>
+        <h2>Create and assign a new tag</h2>
+      <% end %>
+<div class="field-unit field-unit--has-many">
+        <h2>Assign an existing tag</h2>
+
+<div class="field-unit__label">
+  <label for="paper_tag_ids-selectized">tags</label>
+</div>
+<div class="field-unit__field">
+  <input name="paper[tag_ids][]" type="hidden" value=""><select multiple="multiple" name="paper[tag_ids][]" id="paper_tag_ids" tabindex="-1" class="selectized" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full"><input type="text" autocomplete="off" tabindex="" id="paper_tag_ids-selectized" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div></div>
+
+        <h2>Create and assign a new tag</h2>
+
+    </div>
+    </div>
+  <% end -%>
+
+  <div class="form-actions">
+    <%= f.submit %>
+  </div>
+<% end %>
