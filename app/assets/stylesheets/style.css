@@ -1,0 +1,4 @@
+// Overriding Administrate's default handling of :text field types on show pages so that they do not run off to the right side of the page
+.preserve-whitespace {
+white-space: pre-wrap !important;
+}
