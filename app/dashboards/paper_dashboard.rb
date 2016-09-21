@@ -16,6 +16,7 @@ class PaperDashboard < Administrate::BaseDashboard
     authors: Field::String,
     journal: Field::String,
     abstract: Field::Text,
+    noteworthy_quotes: Field::Text,
     commentary: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -42,6 +43,7 @@ class PaperDashboard < Administrate::BaseDashboard
     :title,
     :authors,
     :abstract,
+    :noteworthy_quotes,
     :commentary,
     :tags,
     :created_at,
@@ -58,6 +60,7 @@ class PaperDashboard < Administrate::BaseDashboard
     :title,
     :authors,
     :abstract,
+    :noteworthy_quotes,
     :commentary,
     :tags,
   ].freeze
