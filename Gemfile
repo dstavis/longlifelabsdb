@@ -4,7 +4,7 @@ gem 'administrate'
 gem 'bourbon'
 gem 'bitters'
 
-gem 'redactor-rails'
+gem 'ckeditor'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -36,6 +36,8 @@ group :development, :test do
   # gem 'byebug'
   gem 'pry'
   # gem 'pry-rails'
+
+  gem 'better_errors'
 
   gem 'faker'
 

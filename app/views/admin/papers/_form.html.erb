@@ -32,7 +32,11 @@ and renders all form fields for a resource's editable attributes.
 
   <% page.attributes.each do |attribute| -%>
     <div class="field-unit field-unit--<%= attribute.html_class %>">
-      <%= render_field attribute, f: f %>
+      <% unless attribute.attribute == :commentary %>
+        <%= render_field attribute, f: f %>
+      <% else %>
+        <%= f.cktext_area :commentary %>
+      <% end %>
     </div>
   <% end -%>
 
