@@ -18,6 +18,8 @@ class PaperDashboard < Administrate::BaseDashboard
     abstract: Field::Text,
     noteworthy_quotes: Field::Text,
     commentary: Field::Text,
+    personal_notes: Field::Text,
+    published: Field::Boolean,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -44,8 +46,10 @@ class PaperDashboard < Administrate::BaseDashboard
     :authors,
     :abstract,
     :noteworthy_quotes,
+    :personal_notes,
     :commentary,
     :tags,
+    :published,
     :created_at,
     :updated_at,
   ].freeze
@@ -61,8 +65,10 @@ class PaperDashboard < Administrate::BaseDashboard
     :authors,
     :abstract,
     :noteworthy_quotes,
+    :personal_notes,
     :commentary,
     :tags,
+    :published,
   ].freeze
 
   # Overwrite this method to customize how papers are displayed
