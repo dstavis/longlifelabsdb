@@ -32,16 +32,16 @@ and renders all form fields for a resource's editable attributes.
 
   <% page.attributes.each do |attribute| -%>
     <div class="field-unit field-unit--<%= attribute.html_class %>">
+      <!-- Add text editor for commentary field -->
       <% if attribute.attribute == :commentary %>
-        <%= f.cktext_area :commentary %>
+        <div class="field-unit">
+          <%= f.cktext_area :commentary %>
+        </div>
+      <!-- Add new tag field for tags field -->
       <% elsif attribute.attribute == :tags %>
         <% attribute.data.new %>
+        <h3> Add a new tag </h3>
         <%= render_field attribute, {f: f}%>
-        <% fields_for attribute.data do |tag_form_builder| %>
-          <h3> Add a new tag </h3>
-          <div class=“field-unit_label”> tag_form_builder.label :name </div>
-          <div class=“field-unit__field”> tag_form_builder.text_field :name </div>
-        <% end %>
       <% else attribute.attribute == :commentary %>
         <%= render_field attribute, f: f %>
       <% end %>
