@@ -32,26 +32,19 @@ and renders all form fields for a resource's editable attributes.
 
   <% page.attributes.each do |attribute| -%>
     <div class="field-unit field-unit--<%= attribute.html_class %>">
-      <% if attribute.name == "tags" %>
-        <h2>Assign an existing tag</h2>
-
+      <% if attribute.attribute == :commentary %>
+        <%= f.cktext_area :commentary %>
+      <% elsif attribute.attribute == :tags %>
+        <% attribute.data.new %>
+        <%= render_field attribute, {f: f}%>
+        <% fields_for attribute.data do |tag_form_builder| %>
+          <h3> Add a new tag </h3>
+          <div class=“field-unit_label”> tag_form_builder.label :name </div>
+          <div class=“field-unit__field”> tag_form_builder.text_field :name </div>
+        <% end %>
+      <% else attribute.attribute == :commentary %>
+        <%= render_field attribute, f: f %>
       <% end %>
-      <%= render_field attribute, f: f %>
-      <% if attribute.name == "tags" %>
-        <h2>Create and assign a new tag</h2>
-      <% end %>
-<div class="field-unit field-unit--has-many">
-        <h2>Assign an existing tag</h2>
-
-<div class="field-unit__label">
-  <label for="paper_tag_ids-selectized">tags</label>
-</div>
-<div class="field-unit__field">
-  <input name="paper[tag_ids][]" type="hidden" value=""><select multiple="multiple" name="paper[tag_ids][]" id="paper_tag_ids" tabindex="-1" class="selectized" style="display: none;"></select><div class="selectize-control multi"><div class="selectize-input items not-full"><input type="text" autocomplete="off" tabindex="" id="paper_tag_ids-selectized" style="width: 4px;"></div><div class="selectize-dropdown multi" style="display: none;"><div class="selectize-dropdown-content"></div></div></div></div>
-
-        <h2>Create and assign a new tag</h2>
-
-    </div>
     </div>
   <% end -%>
 
