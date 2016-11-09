@@ -2,3 +2,12 @@
 .preserve-whitespace {
 white-space: pre-wrap !important;
 }
+
+form .force-indented{
+  margin-left: 15%;
+}
+
+form button.force-indented{
+  margin-left: 17%;
+}
+

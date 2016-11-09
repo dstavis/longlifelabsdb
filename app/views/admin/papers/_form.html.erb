@@ -34,18 +34,17 @@ and renders all form fields for a resource's editable attributes.
     <div class="field-unit field-unit--<%= attribute.html_class %>">
       <!-- Add text editor for commentary field -->
       <% if attribute.attribute == :commentary %>
-        <div class="field-unit">
+        <div class="field-unit force-indented">
           <%= f.cktext_area :commentary %>
         </div>
-      <!-- Add new tag field for tags field -->
-      <% elsif attribute.attribute == :tags %>
-        <% attribute.data.new %>
-        <h3> Add a new tag </h3>
-        <%= render_field attribute, {f: f}%>
       <% else attribute.attribute == :commentary %>
         <%= render_field attribute, f: f %>
       <% end %>
     </div>
+    <!-- Add new tag field for tags field -->
+    <% if attribute.attribute == :tags %>
+      <button id="add_new_tag_button" class="force-indented"> Add a new tag </button>
+    <% end -%>
   <% end -%>
 
   <div class="form-actions">
