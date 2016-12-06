@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :papers
     resources :tags
+    get '/addnewtagtopaper', to: 'papers#addnewtagtopaper'
   end
 
   root to: 'pages#home'
