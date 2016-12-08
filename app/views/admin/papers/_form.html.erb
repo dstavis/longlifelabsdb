@@ -34,7 +34,10 @@ and renders all form fields for a resource's editable attributes.
     <div class="field-unit field-unit--<%= attribute.html_class %>">
       <!-- Add text editor for commentary field -->
       <% if attribute.attribute == :commentary %>
-        <div class="field-unit force-indented">
+        <div class="field-unit__label">
+          <label for="commentary">Commentary</label>
+        </div>
+        <div class="field-unit__field">
           <%= f.cktext_area :commentary %>
         </div>
       <% else attribute.attribute == :commentary %>
@@ -43,10 +46,15 @@ and renders all form fields for a resource's editable attributes.
     </div>
     <!-- 'Add new tag' section for tags field -->
     <% if attribute.attribute == :tags %>
-      <a id="toggle_add_new_tag_section" class="force-indented button"> + Add a new tag </a>
+      <a id="toggle_add_new_tag_section" class="force-indented button personal_space"> + Add a new tag </a>
 
-      <div id="add_new_tag_section" class="hidden">
-        <input id="tag_name" type="text"></input>
+      <div id="add_new_tag_section" class="hidden personal_space">
+        <div class="field-unit__label">
+          <label for="tag_name">Tag Name</label>
+        </div>
+        <div class="field-unit__field">
+          <input id="tag_name" type="text"></input>
+        </div>
         <button id="save_tag_button">Save and add new tag to paper</button>
       </div>
 

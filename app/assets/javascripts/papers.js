@@ -8,6 +8,7 @@ $(document).ready(function() {
 
   $('#toggle_add_new_tag_section').click(function(){
     $('#add_new_tag_section').toggleClass('hidden')
+    $('#toggle_add_new_tag_section').toggleClass('hidden')
   })
 
   var addNewTagSuccess = function(data){
@@ -23,6 +24,7 @@ $(document).ready(function() {
     selectize_tags.addItem(data.id)
     // Hide the add new tag section
     $('#add_new_tag_section').toggleClass('hidden')
+    $('#toggle_add_new_tag_section').toggleClass('hidden')
     $('#tag_name').val('');
   }
 
