@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
+  post '/create_tag', to: 'pages#create_tag'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

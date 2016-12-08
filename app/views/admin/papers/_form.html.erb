@@ -41,31 +41,14 @@ and renders all form fields for a resource's editable attributes.
         <%= render_field attribute, f: f %>
       <% end %>
     </div>
-    <!-- Add new tag field for tags field -->
+    <!-- 'Add new tag' section for tags field -->
     <% if attribute.attribute == :tags %>
-      <a id="add_new_tag_button" class="force-indented button"> Add a new tag </a>
+      <a id="toggle_add_new_tag_section" class="force-indented button"> + Add a new tag </a>
 
-      <div class="container">
-        <button id="btnTest" class="btn btn-default">Show Modal</button>
-        <div id="dummyModal" role="dialog" class="modal fade">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" data-dismiss="modal" class="close">&times;</button>
-                <h4 class="modal-title">Error</h4>
-              </div>
-              <div class="modal-body">
-                <p>Quick Brown Fox Jumps Over The Lazy Dog</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div id="add_new_tag_section" class="hidden">
+        <input id="tag_name" type="text"></input>
+        <button id="save_tag_button">Save and add new tag to paper</button>
       </div>
-
-
 
     <% end -%>
   <% end -%>
