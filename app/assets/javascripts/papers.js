@@ -11,17 +11,23 @@ $(document).ready(function() {
   })
 
   var addNewTagSuccess = function(data){
-    debugger
-    // var tag = JSON.parse(data);
-    // do something with tag
     // Add new tag to the select dropdown and select it
-    // Alert: The tag was added successfully!
+    $('#paper_tag_ids').selectize({
+        create: true
+    })
+    var selectize_tags = $('#paper_tag_ids')[0].selectize
+    selectize_tags.addOption({
+      text: data.name,
+      value: data.id
+    });
+    selectize_tags.addItem(data.id)
+    // Hide the add new tag section
     $('#add_new_tag_section').toggleClass('hidden')
   }
 
   var addNewTagError = function(data){
-    debugger
     // Alert: Sorry, the tag could not be added. Here's a hint as to why: "error message"
+    alert("Sorry, the tag could not be added. ")
   }
 
 
