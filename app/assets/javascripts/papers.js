@@ -23,6 +23,7 @@ $(document).ready(function() {
     selectize_tags.addItem(data.id)
     // Hide the add new tag section
     $('#add_new_tag_section').toggleClass('hidden')
+    $('#tag_name').val('');
   }
 
   var addNewTagError = function(data){
