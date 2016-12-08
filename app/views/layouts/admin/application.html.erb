@@ -21,7 +21,9 @@ By default, it renders:
   <title><%= content_for(:title) %> | <%= Rails.application.class.parent_name.titlecase %></title>
   <!-- This line makes Administrate use the assets from the rails asset pipeline -->
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
   <%= render "stylesheet" %>
+  <%= render "javascript" %>
   <%= csrf_meta_tags %>
 </head>
 
@@ -41,6 +43,5 @@ By default, it renders:
 
   </div>
 
-  <%= render "javascript" %>
 </body>
 </html>

@@ -1,3 +1,8 @@
 .preserve-whitespace {
 white-space: pre-wrap !important;
 }
+
+form .force-indented{
+  margin-left: 17%;
+}
+
