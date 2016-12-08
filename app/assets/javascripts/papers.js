@@ -27,8 +27,8 @@ $(document).ready(function() {
   }
 
   var addNewTagError = function(data){
-    // Alert: Sorry, the tag could not be added. Here's a hint as to why: "error message"
-    alert("Sorry, the tag could not be added. ")
+    errorMessage = "Sorry, the tag could not be added. Some possible reasons include: the tag name you entered already exists in the database, or the server being down."
+    alert(errorMessage)
   }
 
 
