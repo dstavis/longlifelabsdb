@@ -20,16 +20,7 @@ and is augmented with [Selectize].
 %>
 
 
-<%= f.fields_for :tags do |ff| %>
-  <div>
-  <%= ff.label :name %>
-  <%= ff.text_field :name %>
-  <% if ff.object.persisted? %>
-    <%= ff.check_box :_destroy %>
-    <%= ff.label :_destroy, "Destroy" %>
-  <% end %>
-  </div>
-<% end %>
+
 
 <div class="field-unit__label">
   <%= f.label field.attribute_key, field.attribute %>
