@@ -4,15 +4,15 @@ class PagesController < ApplicationController
   end
 
   def create_tag
+    @tag = Tag.new(name: params['name'])
 
     respond_to do |format|
       format.html{ render :nothing => :true, :status => :no_content }
       format.json{
-        name = params["name"]
-        if @tag = Tag.create(name: name)
-          render json: @tag
+        if @tag.save
+          render json: @tag, status: :created
         else
-          render json: @tag.errors
+          render json: @tag.errors, status: :unprocessable_entity
         end
       }
     end
